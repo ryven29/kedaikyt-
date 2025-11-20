@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimoni - Kedai Kyt@</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .add-testi-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8D6E63 0%, #A1887F 100%);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(141, 110, 99, 0.3);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            z-index: 1000;
+        }
+        .add-testi-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(141, 110, 99, 0.4);
+        }
+        .testi-form-section {
+            display: none;
+            margin-top: 16px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        .testi-form-section.show {
+            display: block;
+        }
+        .testi-form-section label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #8D6E63;
+        }
+        .testi-form-section input[type="file"],
+        .testi-form-section select,
+        .testi-form-section textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #D4A574;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        .testi-form-section input[type="file"] {
+            padding: 8px;
+        }
+        .testi-form-section textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .testi-form-section input:focus,
+        .testi-form-section select:focus,
+        .testi-form-section textarea:focus {
+            outline: none;
+            border-color: #8D6E63;
+            box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.1);
+        }
+        .rating-display {
+            display: flex;
+            gap: 5px;
+            font-size: 20px;
+        }
+        .testi-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            padding: 16px;
+            transition: transform 0.3s;
+        }
+        .testi-card:hover {
+            transform: translateY(-5px);
+        }
+        .testi-photo {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+        .testi-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .testi-name {
+            font-weight: 600;
+            color: #8D6E63;
+            font-size: 1.1em;
+        }
+        .testi-email {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 8px;
+        }
+        .testi-review {
+            margin-top: 12px;
+            color: #555;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .form-actions button {
+            flex: 1;
+        }
+        .btn-cancel {
+            background: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .btn-cancel:hover {
+            background: #d0d0d0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="../image/logo.png" alt="Logo Kripik Usus Kyt@" class="logo">
+                    <div class="brand-info">
+                        <h1>Kedai Kyt@</h1>
+                        <p class="tagline">Rasa Nikmat, Harga Berkualitas</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                        <li><a href="../index.html#produk" class="nav-link">Produk</a></li>
+                        <li><a href="testimoni.html" class="nav-link active">Testimoni</a></li>
+                        <li><a href="../index.html#hubungi" class="nav-link">Hubungi Kami</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 24px;">
+        <section style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+            <h2 style="margin: 0; color: #8D6E63;">Testimoni Pelanggan</h2>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div id="currentUser" style="font-size: 14px; color: #555;"></div>
+                <button id="logoutBtn" class="cta-primary" style="padding: 8px 14px;">Logout</button>
+            </div>
+        </section>
+
+        <!-- Form Section (Hidden by default) -->
+        <section id="testiFormSection" class="testi-form-section">
+            <h3 style="margin-top: 0; color: #8D6E63;">Tambahkan Testimoni</h3>
+            <form id="testiForm">
+                <div>
+                    <label for="photo">Foto (Opsional)</label>
+                    <input type="file" id="photo" accept="image/*">
+                </div>
+                <div>
+                    <label for="rating">Rating</label>
+                    <select id="rating" required>
+                        <option value="">Pilih rating</option>
+                        <option value="5">5 - Luar Biasa</option>
+                        <option value="4">4 - Bagus</option>
+                        <option value="3">3 - Cukup</option>
+                        <option value="2">2 - Kurang</option>
+                        <option value="1">1 - Buruk</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="review">Ulasan</label>
+                    <textarea id="review" rows="4" placeholder="Tulis ulasan Anda..." required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="toggleForm()">Batal</button>
+                    <button type="submit" class="add-to-cart-btn">Kirim Testimoni</button>
+                </div>
+            </form>
+        </section>
+
+        <section style="margin-top: 24px;">
+            <h3 style="color: #8D6E63;">Semua Testimoni</h3>
+            <div id="testiList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;"></div>
+        </section>
+    </main>
+
+    <!-- Floating Add Button -->
+    <button class="add-testi-btn" onclick="toggleForm()" title="Tambah Testimoni">+</button>
+
+    <!-- Footer -->
+    <footer id="hubungi">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>📞 Kontak Pemilik</h4>
+                    <p>📱 WhatsApp: 0856-5480-5329</p>
+                    <p>📖 Facebook: Lisa Aar</p>
+                    <p>👜 Shopee: Kedaikyta</p>
+                </div>
+                <div class="footer-section">
+                    <h4>📍 Alamat Toko</h4>
+                    <p>Jl. Anggrek</p>
+                    <p>Desa Panggung, Kecamatan Panggung</p>
+                    <p>Kabupaten Tanah Laut, Kalimantan Selatan</p>
+                    <p>Kode Pos: 70815</p>
+                </div>
+                <div class="footer-section">
+                    <h4>🌐 Sosial Media</h4>
+                    <div class="social-links">
+                        <a href="https://wa.me/6285654805329" target="_blank" class="whatsapp-link" title="WhatsApp">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="20" fill="#25D366"/>
+                                <path d="M28.5 11.4C26.9 9.8 24.8 8.8 22.5 8.3C20.2 7.8 17.8 8 15.7 8.9C13.6 9.8 11.9 11.3 10.8 13.2C9.7 15.1 9.3 17.3 9.6 19.5C9.9 21.7 11 23.7 12.6 25.2L9 31L15 27.5C16.8 28.6 18.9 29.2 21 29.2C23.7 29.2 26.3 28.1 28.2 26.2C30.1 24.3 31.2 21.7 31.2 19C31.2 16.3 30.1 13.7 28.5 11.4ZM25.9 23.5C25.7 24.1 24.6 24.6 24.1 24.7C23.6 24.8 23.1 24.9 21.9 24.4C21.2 24.1 20.3 23.8 19.3 23.2C16.8 21.9 15.2 19.3 15.1 19.1C14.9 18.9 13.6 17.2 13.6 15.5C13.6 13.8 14.5 12.9 14.8 12.6C15.1 12.3 15.4 12.2 15.6 12.2C15.8 12.2 16 12.2 16.2 12.2C16.4 12.2 16.6 12.2 16.8 12.7C17 13.2 17.5 14.9 17.6 15C17.7 15.1 17.7 15.2 17.6 15.4C17.5 15.6 17.4 15.7 17.3 15.9C17.2 16.1 17 16.3 16.9 16.4C16.7 16.6 16.6 16.8 16.7 17C16.8 17.2 17.4 18.2 18.3 19C19.5 20.1 20.5 20.4 20.8 20.6C21.1 20.8 21.2 20.7 21.4 20.5C21.6 20.3 22.1 19.7 22.3 19.4C22.5 19.1 22.7 19.2 23 19.3C23.3 19.4 24.9 20.2 25.2 20.4C25.5 20.6 25.7 20.7 25.8 20.8C25.9 21 25.9 21.5 25.7 22.1Z" fill="white"/>
+                            </svg>
+                        </a>
+                        <a href="https://web.facebook.com/profile.php?id=61578310350627" target="_blank" class="facebook-link" title="Instagram">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="20" fill="#1877F2"/>
+                                <path d="M25.5 12.5H22.5C21.12 12.5 19.5 13.12 19.5 15.5V17.5H16.5V21H19.5V27.5H23V21H26L26.5 17.5H23V15.5C23 14.67 23.67 14 24.5 14H25.5V12.5Z" fill="white"/>
+                            </svg>
+                        </a>
+                        <a href="https://shopee.co.id/kedaikyta" target="_blank" class="shopee-link" title="Shopee">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="20" fill="#EE4D2D"/>
+                                <path d="M20 11C15.03 11 11 15.03 11 20C11 24.97 15.03 29 20 29C24.97 29 29 24.97 29 20C29 15.03 24.97 11 20 11ZM23.5 24.5H16.5C16.22 24.5 16 24.28 16 24V20.5C16 20.22 16.22 20 16.5 20H17.5V18C17.5 16.62 18.62 15.5 20 15.5C21.38 15.5 22.5 16.62 22.5 18V20H23.5C23.78 20 24 20.22 24 20.5V24C24 24.28 23.78 24.5 23.5 24.5ZM21.5 18C21.5 17.17 20.83 16.5 20 16.5C19.17 16.5 18.5 17.17 18.5 18V20H21.5V18Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Kripik Usus Kyt@. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function maskEmail(email) {
+            const [name, domain] = email.split('@');
+            if (!name || !domain) return email;
+            const visible = Math.min(2, name.length);
+            const masked = name.slice(0, visible) + '*'.repeat(Math.max(1, name.length - visible));
+            const domainParts = domain.split('.');
+            const dName = domainParts[0] || '';
+            const dTld = domainParts.slice(1).join('.') || '';
+            const dVisible = Math.min(1, dName.length);
+            const dMasked = (dName.slice(0, dVisible) + '*'.repeat(Math.max(1, dName.length - dVisible))) + (dTld ? '.' + dTld : '');
+            return masked + '@' + dMasked;
+        }
+
+        function requireAuth() {
+            const userStr = localStorage.getItem('authUser');
+            if (!userStr) {
+                sessionStorage.setItem('nextAfterLogin', 'html/testimoni');
+                window.location.href = '../login';
+                return null;
+            }
+            try {
+                return JSON.parse(userStr);
+            } catch (e) {
+                localStorage.removeItem('authUser');
+                window.location.href = '../login';
+                return null;
+            }
+        }
+
+        function renderUser(user) {
+            const el = document.getElementById('currentUser');
+            if (!el) return;
+            const emailMasked = maskEmail(user.email || '');
+            const displayName = user.name || user.nickname || (user.email ? user.email.split('@')[0] : 'Pengguna');
+            el.textContent = displayName + ' (' + emailMasked + ')';
+        }
+
+        function loadTestimonials() {
+            try {
+                return JSON.parse(localStorage.getItem('testimonials') || '[]');
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveTestimonials(items) {
+            localStorage.setItem('testimonials', JSON.stringify(items));
+        }
+
+        function toggleForm() {
+            const formSection = document.getElementById('testiFormSection');
+            formSection.classList.toggle('show');
+            if (formSection.classList.contains('show')) {
+                formSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function renderTestimonials() {
+            const list = document.getElementById('testiList');
+            const items = loadTestimonials();
+            if (!items.length) {
+                list.innerHTML = '<p style="color:#555; grid-column: 1/-1;">Belum ada testimoni. Jadilah yang pertama!</p>';
+                return;
+            }
+            list.innerHTML = items.map(it => {
+                const stars = '⭐'.repeat(it.rating);
+                const img = it.photo ? `<img src="${it.photo}" alt="foto testimoni" class="testi-photo">` : '';
+                return `
+                    <div class="testi-card">
+                        ${img}
+                        <div class="testi-header">
+                            <strong class="testi-name">${it.userName}</strong>
+                            <span class="rating-display">${stars}</span>
+                        </div>
+                        <div class="testi-email">${it.userEmailMasked}</div>
+                        <p class="testi-review">${it.review}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function handleForm(user) {
+            const form = document.getElementById('testiForm');
+            const photoInput = document.getElementById('photo');
+            const ratingInput = document.getElementById('rating');
+            const reviewInput = document.getElementById('review');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const rating = parseInt(ratingInput.value, 10);
+                const review = (reviewInput.value || '').trim();
+                if (!rating || !review) {
+                    alert('Mohon isi rating dan ulasan.');
+                    return;
+                }
+
+                const items = loadTestimonials();
+
+                function save(photoDataUrl) {
+                    const entry = {
+                        photo: photoDataUrl || '',
+                        rating: rating,
+                        review: review,
+                        userName: user.name || user.nickname || (user.email ? user.email.split('@')[0] : 'Pengguna'),
+                        userEmailMasked: maskEmail(user.email || ''),
+                        createdAt: Date.now()
+                    };
+                    items.unshift(entry);
+                    saveTestimonials(items);
+                    form.reset();
+                    renderTestimonials();
+                    toggleForm();
+                    showNotification('Testimoni berhasil ditambahkan!');
+                }
+
+                const file = photoInput.files && photoInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(evt) {
+                        save(evt.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    save('');
+                }
+            });
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = requireAuth();
+            if (!user) return;
+            renderUser(user);
+            renderTestimonials();
+            handleForm(user);
+
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                localStorage.removeItem('authUser');
+                window.location.href = '../login';
+            });
+        });
+    </script>
+</body>
+</html>
+
