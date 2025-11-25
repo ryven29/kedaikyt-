@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kedai Kyt@</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <img src="image/logo.png" alt="Logo Kripik Usus Kyt@" class="loading-logo">
+            <h2 class="loading-text">Tunggu Sebentar...</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p class="loading-percentage" id="loading-percentage">0%</p>
+        </div>
+    </div>
     <!-- Header -->
     <header>
         <div class="container">
@@ -15,7 +28,7 @@
                     <img src="image/logo.png" alt="Logo Kripik Usus Kyt@" class="logo">
                     <div class="brand-info">
                         <h1>Kedai Kyt@</h1>
-                        <p class="tagline">Rasa Nikmat, Harga Berkualitas</p>
+                        <p class="tagline">A Place for All of Us</p>
                     </div>
                 </div>
                 <nav class="main-nav">
@@ -29,6 +42,13 @@
             </div>
         </div>
     </header>
+
+    <!-- Banner Section -->
+    <div class="banner-container">
+        <div class="container">
+            <img src="image/banner.jpg" alt="Banner Kedai Kyt@" class="main-banner">
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
@@ -47,16 +67,20 @@
                             <img src="image/Slides/IMG-20251019-WA0013.jpg" alt="Kripik Usus Varian 9">
                         </div>
                         <div class="slide">
-                            <img src="image/Slides/id-11134207-7rask-m5s6w9fbp69ydc@resize_w900_nl.webp" alt="Kripik Usus Varian 10">
+                            <img src="image/Slides/id-11134207-7rask-m5s6w9fbp69ydc@resize_w900_nl.webp"
+                                alt="Kripik Usus Varian 10">
                         </div>
                         <div class="slide">
-                            <img src="image/Slides/id-11134207-7rasj-m5s6w9fbxlom25@resize_w900_nl.webp" alt="Kripik Usus Pedas Cabe-cabean">
+                            <img src="image/Slides/id-11134207-7rasj-m5s6w9fbxlom25@resize_w900_nl.webp"
+                                alt="Kripik Usus Pedas Cabe-cabean">
                         </div>
                         <div class="slide">
-                            <img src="image/Slides/id-11134207-7rbk1-m6bzre57t8cic1.webp" alt="Kripik Usus Pedas Daun Jeruk">
+                            <img src="image/Slides/id-11134207-7rbk1-m6bzre57t8cic1.webp"
+                                alt="Kripik Usus Pedas Daun Jeruk">
                         </div>
                         <div class="slide">
-                            <img src="image/Slides/id-11134207-7rbk3-m6bzrdw29fo84c.webp" alt="Kripik Usus Asin Daun Jeruk">
+                            <img src="image/Slides/id-11134207-7rbk3-m6bzrdw29fo84c.webp"
+                                alt="Kripik Usus Asin Daun Jeruk">
                         </div>
                         <div class="slide">
                             <img src="image/Slides/id-11134207-7rbk6-m6bzrdw2dndkc3.webp" alt="Kripik Usus Varian 1">
@@ -92,18 +116,17 @@
                     <div class="description-content">
                         <h2>Selamat Datang di Kedai Kyt@ 👋</h2>
                         <p class="description-text">
-                            Kedai Kyta adalah tempat terbaik untuk menemukan jajanan lezat dan berkualitas tinggi.
-                            Kami menyediakan berbagai macam produk, salah satunya dalam memproduksi kripik usus berkualitas tinggi dengan berbagai varian rasa 
-                            yang menggugah selera. Setiap gigitan memberikan sensasi renyah yang memuaskan dan rasa yang autentik.
+                            Kedai Kyta adalah tempat untuk menemukan jajanan yang berkualitas.
                         </p>
                         <div class="features">
                             <div class="feature-item">
-                                <span class="feature-icon"><img src="image/emoji.png" alt="emoji" class="emoji-icon"></span>
-                                <span>Kripik Usus Renyah & Gurih</span>
+                                <span class="feature-icon"><img src="image/emoji.png" alt="emoji"
+                                        class="emoji-icon"></span>
+                                <span>Cemilan Berkualitas</span>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">🌶️</span>
-                                <span>4 Varian Rasa Lezat</span>
+                                <span>Lezat & Murah</span>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">🚚</span>
@@ -115,7 +138,8 @@
                             </div>
                         </div>
                         <div class="cta-buttons">
-                            <button class="cta-primary" onclick="document.getElementById('produk').scrollIntoView({behavior: 'smooth'})">
+                            <button class="cta-primary"
+                                onclick="document.getElementById('produk').scrollIntoView({behavior: 'smooth'})">
                                 Lihat Produk
                             </button>
                             <a href="https://wa.me/6285654805329" target="_blank" class="cta-whatsapp">
@@ -142,10 +166,12 @@
                 <div class="recommended-info">
                     <h2 class="recommended-title">KRIPIK USUS KYT@</h2>
                     <p class="recommended-description">
-                        Diproduksi menggunakan bahan-bahan alami dan rempah-rempah pilihan yang dicampurkan secara proporsional, menghasilkan cita rasa yang gurih dan lezat. Ideal sebagai pelengkap hidangan nasi hangat maupun sebagai camilan.
+                        Diproduksi menggunakan bahan-bahan alami dan rempah-rempah pilihan yang dicampurkan secara
+                        proporsional, menghasilkan cita rasa yang gurih dan lezat. Ideal sebagai pelengkap hidangan nasi
+                        hangat maupun sebagai camilan.
                     </p>
                 </div>
-                
+
                 <!-- Right Section: Product Cards -->
                 <div class="recommended-products">
                     <div class="products-container" id="products-container">
@@ -166,7 +192,7 @@
         <div class="options-modal-content">
             <span class="close-options" onclick="closeProductOptions()">&times;</span>
             <h2 class="options-title">PILIH OPSI</h2>
-            
+
             <div class="options-product-info">
                 <div class="options-product-image">
                     <div class="options-product-slider" id="options-product-slider">
@@ -178,7 +204,7 @@
                     <p class="options-product-price" id="options-product-price">Rp 5.000</p>
                 </div>
             </div>
-            
+
             <div class="options-section">
                 <label class="options-label">Berat</label>
                 <div class="options-buttons" id="size-options">
@@ -189,7 +215,7 @@
                     <button class="option-btn" data-weight="1000" data-price="90000">1 kg</button>
                 </div>
             </div>
-            
+
             <div class="options-footer">
                 <div class="options-quantity">
                     <button class="qty-btn-options" onclick="changeOptionsQuantity(-1)">-</button>
@@ -237,23 +263,30 @@
                 </div>
                 <div class="footer-section">
                     <h4>🌐 Sosial Media</h4>
-            <div class="social-links">
+                    <div class="social-links">
                         <a href="https://wa.me/6285654805329" target="_blank" class="whatsapp-link" title="WhatsApp">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <circle cx="20" cy="20" r="20" fill="#25D366"/>
-                        <path d="M28.5 11.4C26.9 9.8 24.8 8.8 22.5 8.3C20.2 7.8 17.8 8 15.7 8.9C13.6 9.8 11.9 11.3 10.8 13.2C9.7 15.1 9.3 17.3 9.6 19.5C9.9 21.7 11 23.7 12.6 25.2L9 31L15 27.5C16.8 28.6 18.9 29.2 21 29.2C23.7 29.2 26.3 28.1 28.2 26.2C30.1 24.3 31.2 21.7 31.2 19C31.2 16.3 30.1 13.7 28.5 11.4ZM25.9 23.5C25.7 24.1 24.6 24.6 24.1 24.7C23.6 24.8 23.1 24.9 21.9 24.4C21.2 24.1 20.3 23.8 19.3 23.2C16.8 21.9 15.2 19.3 15.1 19.1C14.9 18.9 13.6 17.2 13.6 15.5C13.6 13.8 14.5 12.9 14.8 12.6C15.1 12.3 15.4 12.2 15.6 12.2C15.8 12.2 16 12.2 16.2 12.2C16.4 12.2 16.6 12.2 16.8 12.7C17 13.2 17.5 14.9 17.6 15C17.7 15.1 17.7 15.2 17.6 15.4C17.5 15.6 17.4 15.7 17.3 15.9C17.2 16.1 17 16.3 16.9 16.4C16.7 16.6 16.6 16.8 16.7 17C16.8 17.2 17.4 18.2 18.3 19C19.5 20.1 20.5 20.4 20.8 20.6C21.1 20.8 21.2 20.7 21.4 20.5C21.6 20.3 22.1 19.7 22.3 19.4C22.5 19.1 22.7 19.2 23 19.3C23.3 19.4 24.9 20.2 25.2 20.4C25.5 20.6 25.7 20.7 25.8 20.8C25.9 21 25.9 21.5 25.7 22.1Z" fill="white"/>
-                    </svg>
-                </a>
-                        <a href="https://web.facebook.com/profile.php?id=61578310350627" target="_blank" class="facebook-link" title="Instagram">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <circle cx="20" cy="20" r="20" fill="#1877F2"/>
-                                 <path d="M25.5 12.5H22.5C21.12 12.5 19.5 13.12 19.5 15.5V17.5H16.5V21H19.5V27.5H23V21H26L26.5 17.5H23V15.5C23 14.67 23.67 14 24.5 14H25.5V12.5Z" fill="white"/>
+                                <circle cx="20" cy="20" r="20" fill="#25D366" />
+                                <path
+                                    d="M28.5 11.4C26.9 9.8 24.8 8.8 22.5 8.3C20.2 7.8 17.8 8 15.7 8.9C13.6 9.8 11.9 11.3 10.8 13.2C9.7 15.1 9.3 17.3 9.6 19.5C9.9 21.7 11 23.7 12.6 25.2L9 31L15 27.5C16.8 28.6 18.9 29.2 21 29.2C23.7 29.2 26.3 28.1 28.2 26.2C30.1 24.3 31.2 21.7 31.2 19C31.2 16.3 30.1 13.7 28.5 11.4ZM25.9 23.5C25.7 24.1 24.6 24.6 24.1 24.7C23.6 24.8 23.1 24.9 21.9 24.4C21.2 24.1 20.3 23.8 19.3 23.2C16.8 21.9 15.2 19.3 15.1 19.1C14.9 18.9 13.6 17.2 13.6 15.5C13.6 13.8 14.5 12.9 14.8 12.6C15.1 12.3 15.4 12.2 15.6 12.2C15.8 12.2 16 12.2 16.2 12.2C16.4 12.2 16.6 12.2 16.8 12.7C17 13.2 17.5 14.9 17.6 15C17.7 15.1 17.7 15.2 17.6 15.4C17.5 15.6 17.4 15.7 17.3 15.9C17.2 16.1 17 16.3 16.9 16.4C16.7 16.6 16.6 16.8 16.7 17C16.8 17.2 17.4 18.2 18.3 19C19.5 20.1 20.5 20.4 20.8 20.6C21.1 20.8 21.2 20.7 21.4 20.5C21.6 20.3 22.1 19.7 22.3 19.4C22.5 19.1 22.7 19.2 23 19.3C23.3 19.4 24.9 20.2 25.2 20.4C25.5 20.6 25.7 20.7 25.8 20.8C25.9 21 25.9 21.5 25.7 22.1Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <a href="https://web.facebook.com/profile.php?id=61578310350627" target="_blank"
+                            class="facebook-link" title="Instagram">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="20" fill="#1877F2" />
+                                <path
+                                    d="M25.5 12.5H22.5C21.12 12.5 19.5 13.12 19.5 15.5V17.5H16.5V21H19.5V27.5H23V21H26L26.5 17.5H23V15.5C23 14.67 23.67 14 24.5 14H25.5V12.5Z"
+                                    fill="white" />
                             </svg>
                         </a>
                         <a href="https://shopee.co.id/kedaikyta" target="_blank" class="shopee-link" title="Shopee">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <circle cx="20" cy="20" r="20" fill="#EE4D2D"/>
-                                <path d="M20 11C15.03 11 11 15.03 11 20C11 24.97 15.03 29 20 29C24.97 29 29 24.97 29 20C29 15.03 24.97 11 20 11ZM23.5 24.5H16.5C16.22 24.5 16 24.28 16 24V20.5C16 20.22 16.22 20 16.5 20H17.5V18C17.5 16.62 18.62 15.5 20 15.5C21.38 15.5 22.5 16.62 22.5 18V20H23.5C23.78 20 24 20.22 24 20.5V24C24 24.28 23.78 24.5 23.5 24.5ZM21.5 18C21.5 17.17 20.83 16.5 20 16.5C19.17 16.5 18.5 17.17 18.5 18V20H21.5V18Z" fill="white"/>
+                                <circle cx="20" cy="20" r="20" fill="#EE4D2D" />
+                                <path
+                                    d="M20 11C15.03 11 11 15.03 11 20C11 24.97 15.03 29 20 29C24.97 29 29 24.97 29 20C29 15.03 24.97 11 20 11ZM23.5 24.5H16.5C16.22 24.5 16 24.28 16 24V20.5C16 20.22 16.22 20 16.5 20H17.5V18C17.5 16.62 18.62 15.5 20 15.5C21.38 15.5 22.5 16.62 22.5 18V20H23.5C23.78 20 24 20.22 24 20.5V24C24 24.28 23.78 24.5 23.5 24.5ZM21.5 18C21.5 17.17 20.83 16.5 20 16.5C19.17 16.5 18.5 17.17 18.5 18V20H21.5V18Z"
+                                    fill="white" />
                             </svg>
                         </a>
                     </div>
@@ -264,6 +297,46 @@
     </footer>
 
     <script>
+        // Loading Screen Logic
+        document.addEventListener('DOMContentLoaded', function () {
+            const loadingScreen = document.getElementById('loading-screen');
+            const progressBar = document.getElementById('progress-bar');
+            const percentageText = document.getElementById('loading-percentage');
+            let width = 0;
+
+            // Simulate loading progress
+            const interval = setInterval(function () {
+                // Random increment for more realistic feel
+                const increment = Math.floor(Math.random() * 5) + 1;
+                width += increment;
+
+                if (width >= 100) {
+                    width = 100;
+                    clearInterval(interval);
+
+                    // Ensure everything is loaded before hiding
+                    window.onload = function () {
+                        setTimeout(hideLoadingScreen, 500);
+                    };
+
+                    // Fallback if window.onload already fired
+                    if (document.readyState === 'complete') {
+                        setTimeout(hideLoadingScreen, 500);
+                    }
+                }
+
+                progressBar.style.width = width + '%';
+                percentageText.textContent = width + '%';
+            }, 50); // Adjust speed here
+
+            function hideLoadingScreen() {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500); // Wait for transition to finish
+            }
+        });
+
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let currentSlide = 0;
         let categorySliders = {};
@@ -272,14 +345,14 @@
         function changeSlide(n) {
             const slides = document.querySelectorAll('.slide');
             const dots = document.querySelectorAll('.dot');
-            
+
             slides[currentSlide].classList.remove('active');
             dots[currentSlide].classList.remove('active');
-            
+
             currentSlide += n;
             if (currentSlide >= slides.length) currentSlide = 0;
             if (currentSlide < 0) currentSlide = slides.length - 1;
-            
+
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.add('active');
         }
@@ -287,12 +360,12 @@
         function goToSlide(n) {
             const slides = document.querySelectorAll('.slide');
             const dots = document.querySelectorAll('.dot');
-            
+
             slides[currentSlide].classList.remove('active');
             dots[currentSlide].classList.remove('active');
-            
+
             currentSlide = n;
-            
+
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.add('active');
         }
@@ -302,7 +375,7 @@
             // Hero slider
             const heroSlides = document.querySelectorAll('.slide');
             const heroDots = document.getElementById('hero-dots');
-            
+
             // Generate dots for hero slider
             if (heroDots) {
                 heroDots.innerHTML = '';
@@ -313,14 +386,14 @@
                     heroDots.appendChild(dot);
                 }
             }
-            
+
             // Category sliders
             const categorySliders = document.querySelectorAll('.category-slider');
             categorySliders.forEach((slider, index) => {
                 const slides = slider.querySelectorAll('.category-slide');
                 if (slides.length > 1) {
                     window[`categorySlide${index}`] = 0;
-                    
+
                     // Auto slide for category sliders
                     setInterval(() => {
                         const currentSlide = window[`categorySlide${index}`];
@@ -354,28 +427,28 @@
             const slider = document.querySelector('.product-slider');
             const dots = document.querySelector('.product-dots');
             const images = flavorImages[flavor];
-            
+
             // Clear existing content
             slider.innerHTML = '';
             dots.innerHTML = '';
-            
+
             // Add slides
             images.forEach((image, index) => {
                 const slide = document.createElement('div');
                 slide.className = `product-slide ${index === 0 ? 'active' : ''}`;
                 slide.innerHTML = `<img src="${image}" alt="Kripik Usus ${flavorNames[flavor]}">`;
                 slider.appendChild(slide);
-                
+
                 // Add dot
                 const dot = document.createElement('span');
                 dot.className = `product-dot ${index === 0 ? 'active' : ''}`;
                 dot.onclick = () => goToProductSlide(index);
                 dots.appendChild(dot);
             });
-            
+
             // Reset slide position
             productCurrentSlide = 0;
-            
+
             // Clear existing interval and start new one if multiple images
             if (productSlideInterval) clearInterval(productSlideInterval);
             if (images.length > 1) {
@@ -386,14 +459,14 @@
         function changeProductSlide(n) {
             const slides = document.querySelectorAll('.product-slide');
             const dots = document.querySelectorAll('.product-dot');
-            
+
             if (!slides.length) return;
-            
+
             slides[productCurrentSlide].classList.remove('active');
             dots[productCurrentSlide].classList.remove('active');
-            
+
             productCurrentSlide = (productCurrentSlide + n + slides.length) % slides.length;
-            
+
             slides[productCurrentSlide].classList.add('active');
             dots[productCurrentSlide].classList.add('active');
         }
@@ -401,14 +474,14 @@
         function goToProductSlide(n) {
             const slides = document.querySelectorAll('.product-slide');
             const dots = document.querySelectorAll('.product-dot');
-            
+
             if (!slides.length) return;
-            
+
             slides[productCurrentSlide].classList.remove('active');
             dots[productCurrentSlide].classList.remove('active');
-            
+
             productCurrentSlide = n;
-            
+
             slides[productCurrentSlide].classList.add('active');
             dots[productCurrentSlide].classList.add('active');
         }
@@ -451,14 +524,14 @@
         function updateCart() {
             // Simpan ke localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
-            
+
             const cartCount = document.getElementById('cart-count');
             const cartItems = document.getElementById('cart-items');
             const totalPrice = document.getElementById('total-price');
-            
+
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = totalItems;
-            
+
             if (cart.length === 0) {
                 cartItems.innerHTML = '<p class="empty-cart">Keranjang masih kosong</p>';
             } else {
@@ -477,7 +550,7 @@
                     </div>
                 `).join('');
             }
-            
+
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             totalPrice.textContent = `Rp ${total.toLocaleString('id-ID')}`;
         }
@@ -492,17 +565,17 @@
                 alert('Keranjang masih kosong!');
                 return;
             }
-            
+
             let message = 'Halo, saya ingin memesan:\n\n';
             let total = 0;
-            
+
             cart.forEach(item => {
                 message += `${item.name} x${item.quantity} = Rp ${(item.price * item.quantity).toLocaleString('id-ID')}\n`;
                 total += item.price * item.quantity;
             });
-            
+
             message += `\nTotal: Rp ${total.toLocaleString('id-ID')}`;
-            
+
             const whatsappUrl = `https://wa.me/6285654805329?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
@@ -512,11 +585,11 @@
             notification.className = 'notification';
             notification.textContent = message;
             document.body.appendChild(notification);
-            
+
             setTimeout(() => {
                 notification.classList.add('show');
             }, 100);
-            
+
             setTimeout(() => {
                 notification.classList.remove('show');
                 setTimeout(() => notification.remove(), 300);
@@ -591,7 +664,7 @@
                 card.dataset.productId = product.id;
 
                 const hasMultipleImages = product.images.length > 1;
-                
+
                 card.innerHTML = `
                     <div class="product-card-image">
                         <div class="product-card-slider" id="slider-${product.id}">
@@ -601,7 +674,7 @@
                                 </div>
                             `).join('')}
                         </div>
-                        ${hasMultipleImages ? '<div class="product-card-dots" id="dots-'+product.id+'"></div>' : ''}
+                        ${hasMultipleImages ? '<div class="product-card-dots" id="dots-' + product.id + '"></div>' : ''}
                     </div>
                     <div class="product-card-info">
                         <h3 class="product-card-name">${product.displayName}</h3>
@@ -635,17 +708,17 @@
         function initializeProductCardSlider(productId, imageCount) {
             let currentIndex = 0;
             const slides = document.querySelectorAll(`#slider-${productId} .product-card-slide`);
-            
+
             if (!slides.length || imageCount < 2) return;
 
             productCardSliders[productId] = setInterval(() => {
                 // Fade out current
                 slides[currentIndex].style.opacity = '0';
-                
+
                 setTimeout(() => {
                     slides[currentIndex].classList.remove('active');
                     currentIndex = (currentIndex + 1) % imageCount;
-                    
+
                     // Fade in next
                     slides[currentIndex].classList.add('active');
                     setTimeout(() => {
@@ -675,7 +748,7 @@
             // Update product images in modal
             const slider = document.getElementById('options-product-slider');
             slider.innerHTML = '';
-            
+
             product.images.forEach((img, index) => {
                 const slide = document.createElement('div');
                 slide.className = `options-product-slide ${index === 0 ? 'active' : ''}`;
@@ -701,7 +774,7 @@
 
         function closeProductOptions() {
             document.getElementById('product-options-modal').style.display = 'none';
-            
+
             // Clear slider intervals
             if (window.optionsProductSliderInterval) {
                 clearInterval(window.optionsProductSliderInterval);
@@ -716,16 +789,16 @@
 
             let currentIndex = 0;
             const slides = document.querySelectorAll('#options-product-slider .options-product-slide');
-            
+
             if (!slides.length || imageCount < 2) return;
 
             window.optionsProductSliderInterval = setInterval(() => {
                 slides[currentIndex].style.opacity = '0';
-                
+
                 setTimeout(() => {
                     slides[currentIndex].classList.remove('active');
                     currentIndex = (currentIndex + 1) % imageCount;
-                    
+
                     slides[currentIndex].classList.add('active');
                     setTimeout(() => {
                         slides[currentIndex].style.opacity = '1';
@@ -735,14 +808,14 @@
         }
 
         // Size selection in options modal
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (e.target.classList.contains('option-btn')) {
                 document.querySelectorAll('#size-options .option-btn').forEach(btn => btn.classList.remove('active'));
                 e.target.classList.add('active');
-                
+
                 currentSelectedWeight = parseInt(e.target.dataset.weight);
                 currentSelectedPrice = parseInt(e.target.dataset.price);
-                
+
                 document.getElementById('options-product-price').textContent = `Rp ${currentSelectedPrice.toLocaleString('id-ID')}`;
             }
         });
@@ -776,7 +849,7 @@
 
             const cards = container.querySelectorAll('.product-card');
             const totalCards = cards.length;
-            
+
             if (totalCards <= productsDisplayed) {
                 // Hide navigation arrows if all products are visible
                 document.querySelectorAll('.product-nav-btn').forEach(btn => {
@@ -793,7 +866,7 @@
             const maxIndex = Math.max(0, totalCards - productsDisplayed);
 
             currentProductCardIndex += direction;
-            
+
             if (currentProductCardIndex < 0) currentProductCardIndex = 0;
             if (currentProductCardIndex > maxIndex) currentProductCardIndex = maxIndex;
 
@@ -807,7 +880,7 @@
 
         // Smooth scrolling for internal hash links only
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 const href = this.getAttribute('href') || '';
                 if (href.startsWith('#')) {
                     e.preventDefault();
@@ -824,14 +897,14 @@
         });
 
         // Initialize cart and product slider on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateCart();
             initializeSliders();
             generateProductCards();
         });
 
         // Close modal when clicking outside
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const cartModal = document.getElementById('cart-modal');
             const optionsModal = document.getElementById('product-options-modal');
             if (event.target === cartModal) {
@@ -843,4 +916,5 @@
         }
     </script>
 </body>
+
 </html>
